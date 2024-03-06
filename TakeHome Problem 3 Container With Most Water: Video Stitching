@@ -1,0 +1,23 @@
+class Solution:
+    def maxArea(height):
+        #find first heighest
+        pos1 = 0
+        pos2 = 0 
+        for i in range(0, len(height)):
+            h1 = height[0]
+            if height[i] >= h1:
+                h1 = height[i]
+                pos1 = i
+        #find second heighest
+        height.remove(h1)
+        for i in range(0, len(height)):
+            h2 = 0
+            if height[i] >= h2:
+                h2 = height[i]
+                pos2 = i
+        lower = 0
+        if h1 >= h2:
+             lower = h2
+        else:
+             lower = h1
+        return lower*(pos2 - pos1)
