@@ -1,0 +1,19 @@
+class Solution:
+    def videoStitching(self, clips: List[List[int]], time: int) -> int:
+        num_of_clips = 0
+        t = time
+        valid = []
+        for i in range(len(clips)+1):
+            if clips[i][0] == 0:
+                if clips[i][1] > clips[i+1][1]:
+                    num_of_clips += 1
+                    t -= clips[i][1]
+                    valid = clip[i]
+            else:
+                return -1
+        for clip in clips:
+            if valid[0] <= clip[0] <= valid[1]:
+                t -= (clip[1] - clip[0])
+                valid = clip
+                num_of_clips += 1
+        return num_of_clips
